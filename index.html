@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Script type="text/javascript">
+        function clevertap() {
+            
+        
+    var clevertap = {event:[], profile:[], account:[], onUserLogin:[],region:'in1', notifications:[], privacy:[]};
+    // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+   clevertap.account.push({ "id": "TEST-699-R79-7W7Z" });
+   clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+   clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+    (function () {
+            var wzrk = document.createElement('script');
+            wzrk.type = 'text/javascript';
+            wzrk.async = true;
+            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wzrk, s);
+            
+     })();
+
+     // with the exception of one of Identity, Email, or FBID
+// each of the following fields is optional
+
+clevertap.onUserLogin.push({
+ "Site": {
+   "Name": "Vaibhav Salave",            // String
+                // String or number
+   "Email": "Vaibhavsalave14@gmail.com",         // Email address of the user
+                   // Date of Birth. Date object
+// optional fields. controls whether the user will be sent email, push etc.
+   "MSG-email": true,                // Disable email notifications
+   "MSG-push": true,                  // Enable push notifications
+   "MSG-sms": true,                   // Enable sms notifications
+   "MSG-whatsapp": false,              // Enable WhatsApp notifications
+ }
+})
+
+clevertap.profile.push({
+ "Site": {
+   "Product Id": 1 ,
+   "Product name": "CleverTap"
+ }
+});
+
+clevertap.event.push("Product_Viewed Event");
+
+clevertap.event.push("Product Viewed", {
+  "Product name":"CleverTap",
+  
+  "Email": "Vaibhavsalave14@gmail.com",
+  
+  "Date": new Date()
+});
+
+
+        }
+
+
+
+     
+    </Script>
+</head>
+<body>
+    <input type="button" onclick="clevertap">
+</body>
+</html>
